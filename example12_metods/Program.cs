@@ -73,7 +73,44 @@ string Replace(string text, char oldValue, char newValue)
     return result;
 }
 
-string newText = Replace(text, ' ', '|');
-newText = Replace(newText, 'к', 'К');
-newText = Replace(newText, 'С', 'с');
-Console.WriteLine(newText);
+//string newText = Replace(text, ' ', '|');
+//newText = Replace(newText, 'к', 'К');
+//newText = Replace(newText, 'С', 'с');
+//Console.WriteLine(newText);
+
+// сортировка массива
+
+int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 2, 1 };
+
+void PrintArray(int[] array)
+{
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
+
+void SeletionSort(int[] array)
+{
+    int temp = 0;
+    int minPosition = 0;
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        minPosition = i;
+
+        for (int j = i + 1; j < array.Length; j++)              // Поиск индекса элемента массива с минимальным значением
+        {
+            if (array[j] < array[minPosition]) minPosition = j;
+        }
+
+        temp = array[minPosition];                              // 
+        array[minPosition] = array[i];
+        array[i] = temp;
+    }
+}
+
+PrintArray(arr);
+SeletionSort(arr);
+PrintArray(arr);
