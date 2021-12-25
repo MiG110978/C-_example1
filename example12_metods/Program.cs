@@ -45,5 +45,35 @@ string Method4(int count, string text)
     return result;
 }
 
-string res = Method4(4, "qwerty");
-Console.WriteLine(res);
+//string res = Method4(4, "qwerty");
+//Console.WriteLine(res);
+
+// == Работа с текстом ==
+// Дан текст. Нужно заменить пробелы черточками.
+// маленькие буквы "к" заменить на большие "К"
+// большие "С" заменить на маленькие "с".
+
+string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
+            + "ежели бы вас послали вместо нашего милого Винценгероде, "
+            + "вы бы взяли приступом согласие прусского короля. "
+            + "Вы так красноречивы. Вы дадите мне чаю?";
+// string s = "qwerty"
+//             012345
+// s[3] = к
+
+string Replace(string text, char oldValue, char newValue)
+{
+    string result = String.Empty;
+    int length = text.Length;
+    for (int i = 0; i < length; i++)
+    {
+        if (text[i] == oldValue) result = result + $"{newValue}";
+        else result = result + $"{text[i]}";
+    }
+    return result;
+}
+
+string newText = Replace(text, ' ', '|');
+newText = Replace(newText, 'к', 'К');
+newText = Replace(newText, 'С', 'с');
+Console.WriteLine(newText);
